@@ -1,0 +1,32 @@
+﻿@page "/todo"
+@rendermode InteractiveServer
+
+<PageTitle>TODO</PageTitle>
+
+<h3>TODO</h3>
+<input placeholder="Новая задача" @bind="task" />
+<button @onclick="AddTask">Добавить</button>
+
+<ul class="tasklist">
+	@foreach (TODOitem i in tasklist)
+	{
+		<li>
+			<input type="checkbox" @bind="@i.DONE" id="@i.Title" />
+			<label for="@i.Title" class=@(i.DONE ? "done" : "")>@i.Title</label>
+		</li>
+	}
+</ul>
+
+@code 
+{
+	List<TODOitem> tasklist = [];
+	string task;
+	void AddTask()
+	{
+		if (!string.IsNullOrWhiteSpace(task))
+		{
+			tasklist.Add(new TODOitem { Title = task });
+			task = "";
+		}
+	}
+}
