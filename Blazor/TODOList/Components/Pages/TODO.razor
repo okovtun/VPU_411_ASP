@@ -4,6 +4,11 @@
 <PageTitle>TODO</PageTitle>
 
 <h3>TODO</h3>
+<div class="statistics">
+	<h5>Всего заданий: @tasklist.Count</h5>
+	<h5>Выполненных заданий: @tasklist.Where(t => t.DONE == true).ToList().Count</h5>
+	<h5>Осталось: @tasklist.Where(t => t.DONE == false).ToList().Count</h5>
+</div>
 <input placeholder="Новая задача" @bind="task" @onkeyup="Enter" />
 <button @onclick="AddTask">Добавить</button>
 
@@ -23,7 +28,7 @@
 	string task;
 	void AddTask()
 	{
-		if (!string.IsNullOrWhiteSpace(task))
+		if (!string.IsNullOrWhiteSpace(task) && !tasklist.Contains(new TODOitem { Title = task }))
 		{
 			tasklist.Add(new TODOitem { Title = task });
 			task = "";

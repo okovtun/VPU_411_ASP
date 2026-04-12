@@ -7,3 +7,8 @@
 	color:gray;
 	text-decoration:line-through;
 }
+.statistics
+{
+	display:flex;
+	justify-content:space-between;
+}
