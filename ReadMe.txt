@@ -1,6 +1,10 @@
 ﻿https://github.com/okovtun/VPU_411_ASP.git
 
 TODO:
+1. Установить и проверить MS SQL Server 2017 и SSMS (SQL Server Management Studio);
+2. Создать Blazor-приложение для какой-либо Базы Данных, с которой Вы работали на курсе СУБД или ADO.NET;
+
+DONE:
  0. !!!!!	Сделать COMMIT	!!!!!;
  1. Создать ветку 'TODO_HW';
  2. Добавить возможность удалять задания из списка;
