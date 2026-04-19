@@ -2,7 +2,19 @@
 
 TODO:
 1. Установить и проверить MS SQL Server 2017 и SSMS (SQL Server Management Studio);
-2. Создать Blazor-приложение для какой-либо Базы Данных, с которой Вы работали на курсе СУБД или ADO.NET;
+2. Взять Базу PD_321 и импортировать ее на Сервер:https://github.com/okovtun/VPU_411_ASP/blob/master/Blazor/Movies/Data/PD_321.rar
+3. Создать проект 'BlazorAcademyHW' и в этом проекте должны отображаться следующие таблицы:
+	-Disciplines;
+	-Directions;
+	-Groups;
+	-Students;
+	-Teachers;
+4. VavMenu должно выглядеть следующим образом:
+	Students;
+	Groups;
+	Directions;
+	Disciplines;
+	Teachers;
 
 DONE:
  0. !!!!!	Сделать COMMIT	!!!!!;
