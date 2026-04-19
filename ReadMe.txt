@@ -2,7 +2,10 @@
 
 TODO:
 1. Установить и проверить MS SQL Server 2017 и SSMS (SQL Server Management Studio);
-2. Взять Базу PD_321 и импортировать ее на Сервер:https://github.com/okovtun/VPU_411_ASP/blob/master/Blazor/Movies/Data/PD_321.rar
+2. Взять Базу PD_321 и импортировать ее на Сервер:
+	https://github.com/okovtun/VPU_411_ASP/blob/master/Blazor/Movies/Data/PD_321.rar
+	https://github.com/okovtun/VPU_411_ASP/blob/master/Blazor/Picture/ImportDB1.png
+	https://github.com/okovtun/VPU_411_ASP/blob/master/Blazor/Picture/ImportDB2.png
 3. Создать проект 'BlazorAcademyHW' и в этом проекте должны отображаться следующие таблицы:
 	-Disciplines;
 	-Directions;
