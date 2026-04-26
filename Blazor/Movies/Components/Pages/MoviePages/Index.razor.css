@@ -1,0 +1,18 @@
+﻿.controls
+{
+	display:flex;
+	justify-content:space-between;
+}
+	.controls select
+	{
+		width: 48px;
+		height:30px;
+	}
+::deep .movie-title
+{
+	width: 50%;
+}
+::deep .release-date, ::deep .genre
+{
+	width:25%;
+}
