@@ -5,34 +5,44 @@
 @using Movies.Data
 @implements IAsyncDisposable
 @inject IDbContextFactory<Movies.Data.MoviesContext> DbFactory
+@rendermode InteractiveServer
 
 <PageTitle>Index</PageTitle>
 
 <h1>Index</h1>
 
 <p>
-    <a href="movies/create">Create New</a>
+	<a href="movies/create">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="context.Movie">
-    <PropertyColumn Property="movie => movie.Title" />
-    <PropertyColumn Property="movie => movie.ReleaseDate" />
-    <PropertyColumn Property="movie => movie.Genre" />
+<form action="/movies" data-enchance>
+	<input type="search" name="TitleFilter" />
+	<input type="submit" value="Search" />
+</form>
 
-    <TemplateColumn Context="movie">
-        <a href="@($"movies/edit?id={movie.Id}")">Edit</a> |
-        <a href="@($"movies/details?id={movie.Id}")">Details</a> |
-        <a href="@($"movies/delete?id={movie.Id}")">Delete</a>
-    </TemplateColumn>
+<QuickGrid Class="table" Items="FilteredMovies">
+	<PropertyColumn Sortable="true" Property="movie => movie.Title" />
+	<PropertyColumn Sortable="true" Property="movie => movie.ReleaseDate" />
+	<PropertyColumn Sortable="true" Property="movie => movie.Genre" />
+
+	<TemplateColumn Context="movie">
+		<a href="@($"movies/edit?id={movie.Id}")">Edit</a> |
+		<a href="@($"movies/details?id={movie.Id}")">Details</a> |
+		<a href="@($"movies/delete?id={movie.Id}")">Delete</a>
+	</TemplateColumn>
 </QuickGrid>
 
 @code {
-    private MoviesContext context = default!;
+	private MoviesContext context = default!;
+	[SupplyParameterFromQuery]
+	string? TitleFilter { get; set; }
 
-    protected override void OnInitialized()
-    {
-        context = DbFactory.CreateDbContext();
-    }
+	protected override void OnInitialized()
+	{
+		context = DbFactory.CreateDbContext();
+	}
 
-    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+	public async ValueTask DisposeAsync() => await context.DisposeAsync();
+	IQueryable<Movie> FilteredMovies => 
+		context.Movie.Where(m => m.Title.Contains(TitleFilter ?? string.Empty));
 }
