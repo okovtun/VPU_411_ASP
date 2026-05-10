@@ -31,18 +31,20 @@
 	</div>
 </div>
 
-<QuickGrid Class="table" Items="FilteredMovies" Pagination="pagination">
-	<PropertyColumn Class="movie-title" Sortable="true" Property="movie => movie.Title" />
-	<PropertyColumn Class="release-date" Sortable="true" Property="movie => movie.ReleaseDate" />
-	<PropertyColumn Class="genre" Sortable="true" Property="movie => movie.Genre" />
+<div>
+	<QuickGrid Class="table" Items="FilteredMovies" Pagination="pagination">
+		<PropertyColumn Class="movie-title" Sortable="true" Property="movie => movie.Title" />
+		<PropertyColumn Class="release-date" Sortable="true" Property="movie => movie.ReleaseDate" />
+		<PropertyColumn Class="genre" Sortable="true" Property="movie => movie.Genre" />
 
-	<TemplateColumn Context="movie">
-		<a href="@($"movies/edit?id={movie.Id}")">Edit</a> |
-		<a href="@($"movies/details?id={movie.Id}")">Details</a> |
-		<a href="@($"movies/delete?id={movie.Id}")">Delete</a>
-	</TemplateColumn>
-</QuickGrid>
-<Paginator State="pagination" />
+		<TemplateColumn Context="movie">
+			@* <a href="@($"movies/edit?id={movie.Id}")">Edit</a> | *@
+			<a href="@($"movies/details?id={movie.Id}")">Details</a> |
+			@* <a href="@($"movies/delete?id={movie.Id}")">Delete</a> *@
+		</TemplateColumn>
+	</QuickGrid>
+	<Paginator State="pagination" />
+</div>
 
 @code {
 	private MoviesContext context = default!;
