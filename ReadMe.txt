@@ -1,6 +1,12 @@
 ﻿https://github.com/okovtun/VPU_411_ASP.git
 
 TODO:
+1. Прикрутить сортировку, поиск и Pagination на остальные страницы:
+	Enrollments и Courses;
+2. Пользователь должен иметь возможность выбирать количество записей, отображаемых на странце;
+3.
+
+DONE:
 1. В проект 'Blazor\Academy' добавить pagination на страницы:
 	Students\Index;
 	Groups\Index;
