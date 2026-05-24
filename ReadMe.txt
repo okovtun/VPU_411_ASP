@@ -1,5 +1,9 @@
 ﻿https://github.com/okovtun/VPU_411_ASP.git
 
+Bootstrap:
+https://getbootstrap.com/
+https://www.w3schools.com/bootstrap/default.asp
+
 TODO:
 1. Прикрутить сортировку, поиск и Pagination на остальные страницы:
 	Enrollments и Courses;
